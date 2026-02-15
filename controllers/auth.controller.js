@@ -82,4 +82,15 @@ export const signIn = async (req, res, next) => {
   }
 }
 
-export const signOut = async (req, res, next) => {}
+export const signOut = async (req, res, next) => {
+  try {
+    // Since JWT is stateless, sign out is handled client-side by removing the token
+    // This endpoint confirms the sign out action
+    res.status(200).json({
+      success: true,
+      message: 'User signed out successfully',
+    });
+  } catch (error) {
+    next(error);
+  }
+}

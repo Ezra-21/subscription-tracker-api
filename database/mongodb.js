@@ -11,9 +11,9 @@ const connectToDatabase = async () => {
 
     console.log(`Connected to database in ${NODE_ENV} mode`);
   } catch (error) {
-    console.error('Error connecting to database: ', error);
-
-    process.exit(1);
+    console.error('⚠️  MongoDB connection failed - running in demo mode without database');
+    console.error('   Error:', error.message);
+    console.error('   To fix: Install and start MongoDB, or use a cloud MongoDB instance');
   }
 }
 
